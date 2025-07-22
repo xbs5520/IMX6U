@@ -4,6 +4,5 @@
 #include "../imx6ul/imx6ul.h"
 
 void clk_Enable();
-void clk_Init();
-void imx6u_clkinit(void);
+void imx6u_clkinit();
 #endif
