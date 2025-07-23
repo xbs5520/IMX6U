@@ -48,23 +48,23 @@ void imx6u_clkinit(void)
     CCM_ANALOG->PFD_480 = reg;  // write back to PFD
 
 
-    // 4 set AHB min 6 MHZ max 132 Mhz
-    CCM->CBCMR &= ~(3 << 18); // clear AHB_PODF
+    // 4 set AHB 132 Mhz
+    CCM->CBCMR &= ~(3 << 18); // clear PRE_PERIPH_CLK_SEL
     CCM->CBCMR |= (1 << 18); // pre_periph_clk = PLL2_PDF2 = 396Mhz
     CCM->CBCDR &= ~(1 << 25); //periph_clk = pre_periph_clk = 396
     while((CCM->CDHIPR & (1 << 5))); // wait for AHB clock ready
 
-#if 0
+#if 0 // 默认已经设置好3分配但是由于以下代码有bug 上机会卡死所以暂不设置
     CCM->CBCDR &= ~(7 << 10);
     CCM->CBCDR |= (2 << 10);    /* 3分频率 */
     while(CCM->CDHIPR & (1 << 1)); /* 等待握手信号 */
 #endif
 
-    // 5 set IPG_CLK_ROOT min 3MHZ max 66Mhz
+    // 5 set IPG_CLK_ROOT 66Mhz
     CCM->CBCDR &= ~(3 << 8); // clear IPG_PODF
     CCM->CBCDR |= (1 << 8);  // set devide 2 IPG_CLK_Root = 66
 
-    // 6 set PERCLK_CLK_ROOT 
+    // 6 set PERCLK_CLK_ROOT  66Mhz = IPG
     CCM->CSCMR1 &= ~(1 << 6);       // set PERCLK_CLK_ROOT as IPG 
     CCM->CSCMR1 &= ~(0x3f << 0);    // set PERCLK_PODF = 0 devide 1
 
