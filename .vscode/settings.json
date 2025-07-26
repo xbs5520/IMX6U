@@ -12,6 +12,8 @@
         "imx6ul.h": "c",
         "mcimx6y2.h": "c",
         "bsp_int.h": "c",
-        "bsp_exit.h": "c"
+        "bsp_exit.h": "c",
+        "bsp_keyfilter.h": "c",
+        "bsp_epittimer.h": "c"
     }
 }
