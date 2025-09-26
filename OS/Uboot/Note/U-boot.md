@@ -330,3 +330,57 @@ struct display_info_t const displays[] = {{
 } } };
 ```
 
+## NIC driver
+
+ There are 2 NIC in board.
+
+chip : KSZ8081(default) -> SR8201F  
+
+ENET1
+
+![image-20250926134910029](U-boot/image-20250926134910029.png)
+
+The differences from original chip are RST and PHY-address. 
+
+ENET1_RST -- SNVS_TAMPER7
+
+PHYADD1 PHYADD0  1 0 -->  address is 0x2
+
+![image-20250926135929371](U-boot/image-20250926135929371.png)
+
+ENET2_RST -- SNVS_TAMPER8
+
+PHYADD1 PHYADD0  0 1 -->  address is 0x1
+
+`Patch/NIC.patch`
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

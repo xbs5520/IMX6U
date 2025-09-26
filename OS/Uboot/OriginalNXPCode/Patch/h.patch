@@ -1,0 +1,13 @@
+diff --git a/OS/Uboot/OriginalNXPCode/U-boot/include/configs/mx6ull_bryan_emmc.h b/OS/Uboot/OriginalNXPCode/U-boot/include/configs/mx6ull_bryan_emmc.h
+index 37eda42..7ade87a 100644
+--- a/OS/Uboot/OriginalNXPCode/U-boot/include/configs/mx6ull_bryan_emmc.h
++++ b/OS/Uboot/OriginalNXPCode/U-boot/include/configs/mx6ull_bryan_emmc.h
+@@ -342,7 +342,7 @@
+ #define CONFIG_ETHPRIME			"FEC"
+ 
+ #define CONFIG_PHYLIB
+-#define CONFIG_PHY_MICREL
++#define CONFIG_PHY_REALTEK  
+ #endif
+ 
+ #define CONFIG_IMX_THERMAL
